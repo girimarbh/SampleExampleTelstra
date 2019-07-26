@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  SampleExample
+//  Sample_TableView
 //
-//  Created by imgadmin on 26/07/19.
+//  Created by imgadmin on 25/07/19.
 //  Copyright © 2019 Wipro. All rights reserved.
 //
 
@@ -13,14 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window!.backgroundColor = UIColor.white
-        window!.rootViewController = ViewController()
-        window!.makeKeyAndVisible()
         // Override point for customization after application launch.
+        
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        let rootControoler = ViewController()
+        window?.rootViewController = rootControoler
+        
         return true
     }
 
