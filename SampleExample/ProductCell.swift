@@ -55,7 +55,7 @@ class ProductCell : UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //Function to update cell
     func updateContentOnCell(product:Product?) {
         
         guard let productDetails = product else {
@@ -87,7 +87,7 @@ class ProductCell : UITableViewCell {
         productDescriptionLabel.text = product?.productDesc
     }
     
-    
+    // Function to Download image
     private func downloadImage(imageUrl:String, completion: @escaping (UIImage?)->()) {
             let url = URL(string: imageUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in

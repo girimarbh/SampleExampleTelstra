@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Protocal to notify tableview content is fetched
 protocol NotificationProtocal {
     func updateContentOnView()
 }
@@ -20,7 +21,7 @@ class SampleViewModel: NSObject {
 
     override init() {
     }
-    
+    // Function to Fetch Data 
     func fetchData() {
         NewtorkManager.networkmanager.retrieveAPIData(userCompletionHandler: { dict , error in
             guard error == nil else {

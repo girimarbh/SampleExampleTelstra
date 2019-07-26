@@ -21,8 +21,6 @@ class ViewController: UITableViewController,NotificationProtocal {
     }()
     
     var sampleviewmodel = SampleViewModel()
-    
-    let baseURL: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     let cellId = "cellId"
 
     override func viewDidLoad() {
