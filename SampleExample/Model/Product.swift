@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Model to map data from Json
 struct Product {
     var productName : String
     var productImage : String

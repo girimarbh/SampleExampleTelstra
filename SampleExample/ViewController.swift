@@ -25,6 +25,7 @@ class ViewController: UITableViewController,NotificationProtocal {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         // Add Refresh Control to Table View
         if #available(iOS 10.0, *) {
@@ -39,25 +40,37 @@ class ViewController: UITableViewController,NotificationProtocal {
         
         //
         tableView.register(ProductCell.self, forCellReuseIdentifier: cellId)
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         //For
         retrieveAPIData()
-        
     }
     
     @objc private func refreshOptions(sender: UIRefreshControl) {
         // Perform actions to refresh the content
-        self.retrieveAPIData()
+        retrieveAPIData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //Funtion to retrieveAPIData
     private func retrieveAPIData() {
-        sampleviewmodel.delegate = self
-        sampleviewmodel.fetchData();
+        if ReachabilityTest.isConnectedToNetwork() {
+            sampleviewmodel.delegate = self
+            sampleviewmodel.fetchData();
+            //Calling Viewmodel class to fetchdata
+        }
+        else{
+           let alert = UIAlertController(title: "Internet Connection", message: "No Internet aviliable", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
+                guard let weakSelf = self else { return }
+                weakSelf.refreshdata.endRefreshing()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+     
     }
     
 }
@@ -84,10 +97,11 @@ extension ViewController{
     }
     
     func updateContentOnView(){
-        DispatchQueue.main.async{
+        DispatchQueue.main.async{ [weak self] in
+            guard let weakSelf = self else { return }
             // and then dismiss the control
-            self.refreshControl?.endRefreshing()
-            self.tableView.reloadData()
+            weakSelf.refreshControl?.endRefreshing()
+            weakSelf.tableView.reloadData()
         }
     }
 }

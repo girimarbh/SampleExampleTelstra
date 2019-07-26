@@ -17,6 +17,7 @@
 		D3B1D0CF22EACC78007A8D34 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0CC22EACC78007A8D34 /* Extension.swift */; };
 		D3B1D0EF22EAD1A3007A8D34 /* NewtorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0EE22EAD1A3007A8D34 /* NewtorkManager.swift */; };
 		D3B1D0F122EAD1C8007A8D34 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0F022EAD1C8007A8D34 /* SampleViewModel.swift */; };
+		D3B1D0F722EB081C007A8D34 /* ReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0F622EB081C007A8D34 /* ReachabilityTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D3B1D0CC22EACC78007A8D34 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D3B1D0EE22EAD1A3007A8D34 /* NewtorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewtorkManager.swift; sourceTree = "<group>"; };
 		D3B1D0F022EAD1C8007A8D34 /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
+		D3B1D0F622EB081C007A8D34 /* ReachabilityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		D3B1D0F522EAE118007A8D34 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D3B1D0F622EB081C007A8D34 /* ReachabilityTest.swift */,
 				D3B1D0EE22EAD1A3007A8D34 /* NewtorkManager.swift */,
 				D3B1D0CC22EACC78007A8D34 /* Extension.swift */,
 			);
@@ -184,6 +187,7 @@
 			files = (
 				D3B1D0CF22EACC78007A8D34 /* Extension.swift in Sources */,
 				D3B1D0CD22EACC78007A8D34 /* ProductCell.swift in Sources */,
+				D3B1D0F722EB081C007A8D34 /* ReachabilityTest.swift in Sources */,
 				D3B1D0CE22EACC78007A8D34 /* Product.swift in Sources */,
 				D3B1D0F122EAD1C8007A8D34 /* SampleViewModel.swift in Sources */,
 				D3B1D0BB22EAC60E007A8D34 /* ViewController.swift in Sources */,

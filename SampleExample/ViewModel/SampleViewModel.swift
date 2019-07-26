@@ -23,7 +23,10 @@ class SampleViewModel: NSObject {
     }
     // Function to Fetch Data 
     func fetchData() {
-        NewtorkManager.networkmanager.retrieveAPIData(userCompletionHandler: { dict , error in
+        NewtorkManager.networkmanager.retrieveAPIData(userCompletionHandler: { [weak self] dict , error in
+            guard let weakSelf = self else {
+                return
+            }
             guard error == nil else {
                 print(error!)
                 return
@@ -36,19 +39,20 @@ class SampleViewModel: NSObject {
                 return
             }
             
-            self.headerTittle = tittle
+            weakSelf.headerTittle = tittle
             
             guard let jsonArray = json["rows"] as? [[String: Any]] else {
                 return
             }
+            
             //Clear Content before updated
-            self.datalist.removeAll()
+            weakSelf.datalist.removeAll()
             //print("Total Products:\(jsonArray)")
             for json in jsonArray
             {
-                self.datalist.append(Product(productName: json["title"] as? String ?? "", productImage: json["imageHref"] as? String ?? "" , productDesc: json["description"] as? String ?? ""))
+                weakSelf.datalist.append(Product(productName: json["title"] as? String ?? "", productImage: json["imageHref"] as? String ?? "" , productDesc: json["description"] as? String ?? ""))
             }
-            self.delegate?.updateContentOnView()
+            weakSelf.delegate?.updateContentOnView()
         })
     }
 }

@@ -62,17 +62,17 @@ class ProductCell : UITableViewCell {
             //print("No Content")
             return
         }
-        if productDetails.productImage.count > 1{
+        if productDetails.productImage.count > 0{
             downloadImage(imageUrl: productDetails.productImage, completion: { image in
-                DispatchQueue.main.async{
+                DispatchQueue.main.async{ [weak self] in
+                    guard let weakSelf = self else { return }
                     if let image = image {
-                        self.productImage.image = image
+                        weakSelf.productImage.image = image
                         //use the return value
                     } else {
-                        self.productImage.image = UIImage(named: "placeholder")
+                        weakSelf.productImage.image = UIImage(named: "placeholder")
                     }
                 }
-                
             })
         }else{
             self.productImage.image = UIImage(named: "placeholder")
