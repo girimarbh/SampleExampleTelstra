@@ -31,48 +31,17 @@ class ProductCell : UITableViewCell {
     
     
     private let productImage : UIImageView = {
-        let imgView = UIImageView(image: #imageLiteral(resourceName: "glasses"))
+        let imgView = UIImageView(image: UIImage(named: "placeholder"))
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         return imgView
     }()
-    
-    var product : Product? {
-        didSet {
-            if (product?.productImage.count)! > 1{
-                downloadImage(imageUrl: (product?.productImage)!, completion: { image in
-                    DispatchQueue.main.async{
-                        if let image = image {
-                            self.productImage.image = image
-                            //use the return value
-                        } else {
-                            self.productImage.image = #imageLiteral(resourceName: "glasses")
-                        }
-                    }
-                    
-                })
-            }else{
-                self.productImage.image = #imageLiteral(resourceName: "glasses")
-            }
-            
-            productNameLabel.text = product?.productName
-            if (product?.productDesc.count)! < 30{
-                productImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 0, width: 90, height: 0, enableInsets: false)
-                
-                productDescriptionLabel.anchor(top: productNameLabel.bottomAnchor, left: productImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 5, paddingRight: 0, width: frame.size.width - 90, height: 0, enableInsets: false)
-            }
-            productDescriptionLabel.text = product?.productDesc
-        }
-    }
-    
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(productImage)
         addSubview(productNameLabel)
         addSubview(productDescriptionLabel)
-        
 
         productImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 90, height: 90, enableInsets: false)
         
@@ -85,6 +54,37 @@ class ProductCell : UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateContentOnCell(product:Product?) {
+        
+        guard let productDetails = product else {
+            //print("No Content")
+            return
+        }
+        if productDetails.productImage.count > 1{
+            downloadImage(imageUrl: productDetails.productImage, completion: { image in
+                DispatchQueue.main.async{
+                    if let image = image {
+                        self.productImage.image = image
+                        //use the return value
+                    } else {
+                        self.productImage.image = UIImage(named: "placeholder")
+                    }
+                }
+                
+            })
+        }else{
+            self.productImage.image = UIImage(named: "placeholder")
+        }
+        
+        productNameLabel.text = product?.productName
+        if productDetails.productDesc.count < 30{
+            productImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 0, width: 90, height: 0, enableInsets: false)
+            
+            productDescriptionLabel.anchor(top: productNameLabel.bottomAnchor, left: productImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 5, paddingRight: 0, width: frame.size.width - 90, height: 0, enableInsets: false)
+        }
+        productDescriptionLabel.text = product?.productDesc
     }
     
     

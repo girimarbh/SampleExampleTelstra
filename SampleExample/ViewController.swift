@@ -24,7 +24,6 @@ class ViewController: UITableViewController,NotificationProtocal {
     
     let baseURL: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     let cellId = "cellId"
-    var products : [Product]  = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +34,7 @@ class ViewController: UITableViewController,NotificationProtocal {
         } else {
             tableView.addSubview(refreshdata)
         }
-        
-       
-        
+
         //
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
@@ -53,8 +50,6 @@ class ViewController: UITableViewController,NotificationProtocal {
     @objc private func refreshOptions(sender: UIRefreshControl) {
         // Perform actions to refresh the content
         self.retrieveAPIData()
-        // and then dismiss the control
-        sender.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,13 +68,17 @@ extension ViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ProductCell
-        let currentLastItem = products[indexPath.row]
-        cell.product = currentLastItem
+        let currentLastItem = sampleviewmodel.datalist[indexPath.row]
+        cell.updateContentOnCell(product: currentLastItem)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return sampleviewmodel.datalist.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sampleviewmodel.headerTittle
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,7 +87,8 @@ extension ViewController{
     
     func updateContentOnView(){
         DispatchQueue.main.async{
-            self.products = self.sampleviewmodel.datalist
+            // and then dismiss the control
+            self.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
     }

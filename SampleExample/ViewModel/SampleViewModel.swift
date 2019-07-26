@@ -16,6 +16,8 @@ class SampleViewModel: NSObject {
     
     var delegate : NotificationProtocal?
     var datalist = [Product]()
+    var headerTittle:String?
+
     override init() {
     }
     
@@ -29,10 +31,17 @@ class SampleViewModel: NSObject {
                 print("No data")
                 return
             }
-            // var  strTitle = dict["title"] as? String
+            guard let tittle = json["title"] as? String else {
+                return
+            }
+            
+            self.headerTittle = tittle
+            
             guard let jsonArray = json["rows"] as? [[String: Any]] else {
                 return
             }
+            //Clear Content before updated
+            self.datalist.removeAll()
             //print("Total Products:\(jsonArray)")
             for json in jsonArray
             {
