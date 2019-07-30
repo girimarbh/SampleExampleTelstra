@@ -42,14 +42,14 @@ class ProductCell : UITableViewCell {
         addSubview(productImage)
         addSubview(productNameLabel)
         addSubview(productDescriptionLabel)
-
-        productImage.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 90, height: 90, enableInsets: false)
+        
+        productImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 90, height: 90, enableInsets: false)
         
         productNameLabel.anchor(top: topAnchor, left: productImage.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 20, paddingLeft: 10, paddingBottom: 0, paddingRight: 5, width: 0, height: 0, enableInsets: false)
         
         productDescriptionLabel.anchor(top: productNameLabel.bottomAnchor, left: productImage.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 5, paddingRight: 5, width: 0, height: 0, enableInsets: false)
         
-    
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -89,19 +89,20 @@ class ProductCell : UITableViewCell {
     
     // Function to Download image
     private func downloadImage(imageUrl:String, completion: @escaping (UIImage?)->()) {
-            let url = URL(string: imageUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                guard let imgData = data else {
-                    print("No data")
-                    return
-                }
-                let image = UIImage(data: imgData)
-                completion(image)
-            }).resume()
-        }
+        let url = URL(string: imageUrl)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            guard let imgData = data else {
+                print("No data")
+                return
+            }
+            let image = UIImage(data: imgData)
+            completion(image)
+        }).resume()
     }
-    
-    
-    
-    
+}
+
+
+
+
+
 
