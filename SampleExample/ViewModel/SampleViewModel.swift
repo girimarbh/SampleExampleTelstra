@@ -54,7 +54,7 @@ class SampleViewModel: NSObject {
             //print("Total Products:\(jsonArray)")
             for json in jsonArray
             {
-                weakSelf.datalist.append(Product(productName: json["title"] as? String ?? "", productImage: json["imageHref"] as? String ?? "" , productDesc: json["description"] as? String ?? ""))
+                weakSelf.datalist.append(Product(productName: json["title"] as? String ?? "No value", productImage: json["imageHref"] as? String ?? "" , productDesc: json["description"] as? String ?? "No Value"))
             }
             weakSelf.delegate?.updateContentOnView()
         })
