@@ -40,6 +40,7 @@ class ViewController: UITableViewController,NotificationProtocal {
         
         //
         tableView.register(ProductCell.self, forCellReuseIdentifier: cellId)
+        tableView.allowsSelection = false
     }
     override func viewWillAppear(_ animated: Bool) {
         //For
@@ -85,6 +86,7 @@ extension ViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return sampleviewmodel.datalist.count
     }
     
@@ -103,5 +105,14 @@ extension ViewController{
             weakSelf.refreshControl?.endRefreshing()
             weakSelf.tableView.reloadData()
         }
+    }
+    func updateError()
+    {
+        let alert = UIAlertController(title: "You are in Secure Connection", message: "No data aviliable", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
+            guard let weakSelf = self else { return }
+            weakSelf.refreshdata.endRefreshing()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

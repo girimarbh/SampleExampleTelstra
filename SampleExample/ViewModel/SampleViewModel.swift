@@ -11,6 +11,9 @@ import UIKit
 // Protocal to notify tableview content is fetched
 protocol NotificationProtocal {
     func updateContentOnView()
+    func updateError()
+    
+    
 }
 
 class SampleViewModel: NSObject {
@@ -29,6 +32,7 @@ class SampleViewModel: NSObject {
             }
             guard error == nil else {
                 print(error!)
+                self?.delegate?.updateError()
                 return
             }
             guard let json = dict else {

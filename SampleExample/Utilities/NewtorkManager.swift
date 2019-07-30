@@ -10,7 +10,6 @@ import UIKit
 
 public class NewtorkManager: NSObject {
     
-    private let baseURL: String = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 
     static public let networkmanager = NewtorkManager()
     
@@ -26,10 +25,15 @@ public class NewtorkManager: NSObject {
         // Request the data
         let session: URLSession = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
-            print(data!.count)
+           // print(data!.count)
             // Did we get an error?
             guard error == nil else {
                 print(error!)
+                
+                DispatchQueue.main.async{
+                    userCompletionHandler(nil , error as NSError?)
+                }
+                
                 return
             }
             
@@ -64,3 +68,4 @@ public class NewtorkManager: NSObject {
     }
 
 }
+
