@@ -10,61 +10,6 @@ import XCTest
 
 class SampleExampleTests: XCTestCase {
 
-    var vc : UIViewController!
-    
-    override func setUp() {
-        
-        var rootWindow: UIWindow!
-        rootWindow = UIWindow(frame: UIScreen.main.bounds)
-        rootWindow.isHidden = false
-        vc = rootWindow.rootViewController as? UITableViewController
-     // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-       
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    // check view is loaded
-    func testThatViewLoads()
-    {
-        XCTAssertNotNil(vc?.view, "View not initiated properly");
-    }
-    // check for tabelview is subview
-    func testParentViewHasTableViewSubview() {
-        var rootWindow: UIWindow!
-        rootWindow = UIWindow(frame: UIScreen.main.bounds)
-        rootWindow.isHidden = false
-        vc = rootWindow.rootViewController as? UITableViewController
-        let subviews = vc?.view.subviews
-       // XCTAssertTrue((subviews )!.contains(UITableView()), "View does not have a table subview")
-    }
-    
-    func testTitleForTable()
-    {
-         //XCTAssertNil(vc?.view.tableview.title, "title should not nil")
-        //XCTAssertEqual(vc?.view.tableview.title, "About Canada", "Title not Matches")
-    }
-    
-      // check whether conforms for UITableViewDataSource
-    func testThatViewConformsToUITableViewDataSource() {
-       // XCTAssertTrue(self.vc.conforms(to: UITableViewDataSource.self), "View does not conform to UITableView datasource protocol")
-    }
-    
-    
-    func testThatTableViewHasDataSource() {
-        XCTAssertNotNil(vc is UITableViewDataSource, "Table datasource cannot be nil")
-    }
-    
-    func testThatViewConformsToUITableViewDelegate() {
-       XCTAssertTrue(self.vc.conforms(to: UITableViewDelegate.self), "View does not conform to UITableView delegate protocol")
-    }
-    
-    
-    func testTableViewIsConnectedToDelegate() {
-        XCTAssertNotNil(vc is UITableViewDelegate, "Table delegate cannot be nil")
-    }
     
     // Test for Network API
     func testNetworkAPI() {

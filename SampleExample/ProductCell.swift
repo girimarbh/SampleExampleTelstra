@@ -11,7 +11,7 @@ import UIKit
 
 class ProductCell : UITableViewCell {
     
-    private let productNameLabel : UILabel = {
+    public let productNameLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.font = UIFont.boldSystemFont(ofSize: 16)

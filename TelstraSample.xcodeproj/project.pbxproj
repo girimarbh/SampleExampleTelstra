@@ -18,6 +18,7 @@
 		D3B1D0F722EB081C007A8D34 /* ReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0F622EB081C007A8D34 /* ReachabilityTest.swift */; };
 		D3B26BC022F012D500915151 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26BBF22F012D500915151 /* Constant.swift */; };
 		D3B26BC822F014BF00915151 /* SampleExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26BC722F014BF00915151 /* SampleExampleTests.swift */; };
+		D3B26BD322F08CDD00915151 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26BD222F08CDD00915151 /* ViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D3B26BC522F014BF00915151 /* TelstraSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelstraSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B26BC722F014BF00915151 /* SampleExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleExampleTests.swift; sourceTree = "<group>"; };
 		D3B26BC922F014BF00915151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3B26BD222F08CDD00915151 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				D3B26BC722F014BF00915151 /* SampleExampleTests.swift */,
 				D3B26BC922F014BF00915151 /* Info.plist */,
+				D3B26BD222F08CDD00915151 /* ViewControllerTests.swift */,
 			);
 			path = SampleExampleTests;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B26BD322F08CDD00915151 /* ViewControllerTests.swift in Sources */,
 				D3B26BC822F014BF00915151 /* SampleExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
