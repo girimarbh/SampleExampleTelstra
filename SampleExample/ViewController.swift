@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ViewController: UITableViewController,NotificationProtocal {
     
     internal let refreshdata : UIRefreshControl = {

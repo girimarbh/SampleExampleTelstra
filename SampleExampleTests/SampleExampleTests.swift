@@ -8,8 +8,6 @@
 
 import XCTest
 
-
-
 class SampleExampleTests: XCTestCase {
 
     var vc : UIViewController!
@@ -45,9 +43,8 @@ class SampleExampleTests: XCTestCase {
     
     func testTitleForTable()
     {
-        //XCTAssertNil(vc?.view.tableview.title, "title should not nil")
+         //XCTAssertNil(vc?.view.tableview.title, "title should not nil")
         //XCTAssertEqual(vc?.view.tableview.title, "About Canada", "Title not Matches")
-       
     }
     
       // check whether conforms for UITableViewDataSource
@@ -57,7 +54,6 @@ class SampleExampleTests: XCTestCase {
     
     
     func testThatTableViewHasDataSource() {
-        
         XCTAssertNotNil(vc is UITableViewDataSource, "Table datasource cannot be nil")
     }
     
@@ -80,9 +76,6 @@ class SampleExampleTests: XCTestCase {
  // Request the data
     let session: URLSession = URLSession.shared
     let task = session.dataTask(with: request) { (data, response, error) in
-        
-        
-        
         if let httpResponse = response as? HTTPURLResponse {
             let statusCode = httpResponse.statusCode
             
@@ -118,9 +111,5 @@ class SampleExampleTests: XCTestCase {
         task.resume()
  
     }
-    
-    
-    
-    
-
+ 
 }
