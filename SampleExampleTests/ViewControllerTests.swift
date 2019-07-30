@@ -76,4 +76,18 @@ class ViewControllerTests: XCTestCase {
 //        let cell2 = viewControllerUnderTest.tableView(viewControllerUnderTest.tableView, cellForRowAt: IndexPath(row: 2, section: 0)) as? ProductCell
 //        XCTAssertEqual(cell2?.productNameLabel.text, "Transportation")
     }
+    
+    func testTableCellHasDescriptionAndTitleLableValue() {
+//                let cell0 = viewControllerUnderTest.tableView(viewControllerUnderTest.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? ProductCell
+//                XCTAssertNotEqual(cell0?.productDescriptionLabel.text, "No Value")
+                 // XCTAssertEqual(cell0?.productNameLabel.text, "No Value")
+//
+//                let cell1 = viewControllerUnderTest.tableView(viewControllerUnderTest.tableView, cellForRowAt:         IndexPath(row: 1, section: 0)) as? ProductCell
+//                XCTAssertNotEqual(cell1?.productDescriptionLabel.text, "No Value")
+                  //XCTAssertNotEqual(cell1?.productNameLabel.text, "No Value")
+//
+//                let cell2 = viewControllerUnderTest.tableView(viewControllerUnderTest.tableView, cellForRowAt: IndexPath(row: 2, section: 0)) as? ProductCell
+//                XCTAssertNotEqual(cell2?.productDescriptionLabel.text, "No Value")
+        //XCTAssertNotEqual(cell1?.productNameLabel.text, "No Value")
+    }
 }

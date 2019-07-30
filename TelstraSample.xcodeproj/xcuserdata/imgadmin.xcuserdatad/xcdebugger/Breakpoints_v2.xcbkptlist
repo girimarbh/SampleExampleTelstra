@@ -74,7 +74,7 @@
                   moduleName = "TelstraSample"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/imgadmin/Desktop/sample/SampleExampleTelstra/SampleExample/Utilities/NewtorkManager.swift"
-                  timestampString = "586175076.450364"
+                  timestampString = "586192070.5548691"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -89,7 +89,7 @@
                   moduleName = "TelstraSample"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/imgadmin/Desktop/sample/SampleExampleTelstra/SampleExample/Utilities/NewtorkManager.swift"
-                  timestampString = "586175076.455061"
+                  timestampString = "586192070.558251"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -122,12 +122,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SampleExampleTests/SampleExampleTests.swift"
-            timestampString = "586191418.587703"
+            timestampString = "586192557.5148031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
             landmarkName = "testNetworkAPI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SampleExampleTests/ViewControllerTests.swift"
+            timestampString = "586192557.515076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "setUp()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
