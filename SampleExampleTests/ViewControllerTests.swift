@@ -13,8 +13,7 @@ import XCTest
 
 class ViewControllerTests: XCTestCase {
     var viewControllerUnderTest : ProductListViewController!
-    //var viewControllerUnderTest : UITableViewController!
-    
+
     override func setUp() {
         super.setUp()
         
@@ -56,7 +55,7 @@ class ViewControllerTests: XCTestCase {
     }
     func testTableViewHastitle()
     {
-       // let actualTitle = viewControllerUnderTest.tableView.title
+     //   let actualTitle = viewControllerUnderTest.tableView.title
         let expectedTitle = "About Canada"
         //XCTAssertEqual(actualTitle, expectedTitle)
         

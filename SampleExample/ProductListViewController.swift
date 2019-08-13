@@ -12,7 +12,7 @@ class ProductListViewController: UITableViewController,NotificationProtocal {
     
     internal let refreshcontrol : UIRefreshControl = {
         let rc = UIRefreshControl()
-        let title = NSLocalizedString("PullToRefresh", comment: "Pull to refresh")
+        let title = NSLocalizedString(pullToRefresh, comment: pullToRefresh)
         rc.attributedTitle = NSAttributedString(string: title)
         rc.addTarget(self, action: #selector(refreshOptions(sender:)), for: UIControl.Event.valueChanged)
         return rc
