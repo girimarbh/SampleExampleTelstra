@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let rootControoler = ViewController()
+        let rootControoler = ProductListViewController()
         window?.rootViewController = rootControoler  //setting viewcontroller as window rootviewcontroller
         
         return true

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UITableViewController,NotificationProtocal {
+class ProductListViewController: UITableViewController,NotificationProtocal {
     
-    internal let refreshdata : UIRefreshControl = {
+    internal let refreshcontrol : UIRefreshControl = {
         let rc = UIRefreshControl()
         let title = NSLocalizedString("PullToRefresh", comment: "Pull to refresh")
         rc.attributedTitle = NSAttributedString(string: title)
@@ -18,7 +18,7 @@ class ViewController: UITableViewController,NotificationProtocal {
         return rc
     }()
     
-    var sampleviewmodel = SampleViewModel()
+    var productviewmodel = ProductViewModel()
     let cellId = "cellId"
 
     override func viewDidLoad() {
@@ -27,9 +27,9 @@ class ViewController: UITableViewController,NotificationProtocal {
         
         // Add Refresh Control to Table View
         if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshdata
+            tableView.refreshControl = refreshControl
         } else {
-            tableView.addSubview(refreshdata)
+            tableView.addSubview(refreshcontrol)
         }
 
         //
@@ -39,6 +39,9 @@ class ViewController: UITableViewController,NotificationProtocal {
         //
         tableView.register(ProductCell.self, forCellReuseIdentifier: cellId)
         tableView.allowsSelection = false
+        
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+
     }
     override func viewWillAppear(_ animated: Bool) {
         //For
@@ -57,39 +60,40 @@ class ViewController: UITableViewController,NotificationProtocal {
     //Funtion to retrieveAPIData
     private func retrieveAPIData() {
         if ReachabilityTest.isConnectedToNetwork() {
-            sampleviewmodel.delegate = self
-            sampleviewmodel.fetchData();
+            productviewmodel.delegate = self
+            productviewmodel.fetchData();
             //Calling Viewmodel class to fetchdata
         }
         else{
            let alert = UIAlertController(title: "Internet Connection", message: "No Internet aviliable", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
                 guard let weakSelf = self else { return }
-                weakSelf.refreshdata.endRefreshing()
+                weakSelf.refreshcontrol.endRefreshing()
             }))
             self.present(alert, animated: true, completion: nil)
+            self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         }
      
     }
     
 }
 
-extension ViewController{
+extension ProductListViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ProductCell
-        let currentLastItem = sampleviewmodel.datalist[indexPath.row]
+        let currentLastItem = productviewmodel.datalist[indexPath.row]
         cell.updateContentOnCell(product: currentLastItem)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return sampleviewmodel.datalist.count
+        return productviewmodel.datalist.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sampleviewmodel.headerTittle
+        return productviewmodel.headerTittle
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,15 +105,16 @@ extension ViewController{
             guard let weakSelf = self else { return }
             // and then dismiss the control
             weakSelf.refreshControl?.endRefreshing()
+            weakSelf.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
             weakSelf.tableView.reloadData()
         }
     }
     func updateError()
     {
-        let alert = UIAlertController(title: "You are in Secure Connection", message: "No data aviliable", preferredStyle: .alert)
+        let alert = UIAlertController(title: secureError, message: noData , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
             guard let weakSelf = self else { return }
-            weakSelf.refreshdata.endRefreshing()
+            weakSelf.refreshcontrol.endRefreshing()
         }))
         self.present(alert, animated: true, completion: nil)
     }

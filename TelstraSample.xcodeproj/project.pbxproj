@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3239E2323027B700063A7B1 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3239E2223027B700063A7B1 /* DownloadManager.swift */; };
+		D3239E25230284EB0063A7B1 /* ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3239E24230284EB0063A7B1 /* ObjectMapper.swift */; };
 		D3B1D0B922EAC60E007A8D34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0B822EAC60E007A8D34 /* AppDelegate.swift */; };
-		D3B1D0BB22EAC60E007A8D34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0BA22EAC60E007A8D34 /* ViewController.swift */; };
+		D3B1D0BB22EAC60E007A8D34 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0BA22EAC60E007A8D34 /* ProductListViewController.swift */; };
 		D3B1D0C022EAC610007A8D34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B1D0BF22EAC610007A8D34 /* Assets.xcassets */; };
 		D3B1D0CD22EACC78007A8D34 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0CA22EACC78007A8D34 /* ProductCell.swift */; };
 		D3B1D0CE22EACC78007A8D34 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0CB22EACC78007A8D34 /* Product.swift */; };
 		D3B1D0CF22EACC78007A8D34 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0CC22EACC78007A8D34 /* Extension.swift */; };
 		D3B1D0EF22EAD1A3007A8D34 /* NewtorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0EE22EAD1A3007A8D34 /* NewtorkManager.swift */; };
-		D3B1D0F122EAD1C8007A8D34 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0F022EAD1C8007A8D34 /* SampleViewModel.swift */; };
+		D3B1D0F122EAD1C8007A8D34 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0F022EAD1C8007A8D34 /* ProductViewModel.swift */; };
 		D3B1D0F722EB081C007A8D34 /* ReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1D0F622EB081C007A8D34 /* ReachabilityTest.swift */; };
 		D3B26BC022F012D500915151 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26BBF22F012D500915151 /* Constant.swift */; };
 		D3B26BC822F014BF00915151 /* SampleExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B26BC722F014BF00915151 /* SampleExampleTests.swift */; };
@@ -32,16 +34,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3239E2223027B700063A7B1 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		D3239E24230284EB0063A7B1 /* ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectMapper.swift; sourceTree = "<group>"; };
 		D3B1D0B522EAC60E007A8D34 /* TelstraSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelstraSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B1D0B822EAC60E007A8D34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3B1D0BA22EAC60E007A8D34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D3B1D0BA22EAC60E007A8D34 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		D3B1D0BF22EAC610007A8D34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B1D0C422EAC610007A8D34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3B1D0CA22EACC78007A8D34 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		D3B1D0CB22EACC78007A8D34 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D3B1D0CC22EACC78007A8D34 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D3B1D0EE22EAD1A3007A8D34 /* NewtorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewtorkManager.swift; sourceTree = "<group>"; };
-		D3B1D0F022EAD1C8007A8D34 /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
+		D3B1D0F022EAD1C8007A8D34 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		D3B1D0F622EB081C007A8D34 /* ReachabilityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityTest.swift; sourceTree = "<group>"; };
 		D3B26BBF22F012D500915151 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D3B26BC522F014BF00915151 /* TelstraSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelstraSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +115,7 @@
 		D3B1D0F322EAE0E5007A8D34 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D3B1D0F022EAD1C8007A8D34 /* SampleViewModel.swift */,
+				D3B1D0F022EAD1C8007A8D34 /* ProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -120,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D3B1D0CA22EACC78007A8D34 /* ProductCell.swift */,
-				D3B1D0BA22EAC60E007A8D34 /* ViewController.swift */,
+				D3B1D0BA22EAC60E007A8D34 /* ProductListViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -132,6 +136,8 @@
 				D3B1D0EE22EAD1A3007A8D34 /* NewtorkManager.swift */,
 				D3B1D0CC22EACC78007A8D34 /* Extension.swift */,
 				D3B26BBF22F012D500915151 /* Constant.swift */,
+				D3239E2223027B700063A7B1 /* DownloadManager.swift */,
+				D3239E24230284EB0063A7B1 /* ObjectMapper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -246,11 +252,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3B1D0CF22EACC78007A8D34 /* Extension.swift in Sources */,
+				D3239E2323027B700063A7B1 /* DownloadManager.swift in Sources */,
 				D3B1D0CD22EACC78007A8D34 /* ProductCell.swift in Sources */,
 				D3B1D0F722EB081C007A8D34 /* ReachabilityTest.swift in Sources */,
 				D3B1D0CE22EACC78007A8D34 /* Product.swift in Sources */,
-				D3B1D0F122EAD1C8007A8D34 /* SampleViewModel.swift in Sources */,
-				D3B1D0BB22EAC60E007A8D34 /* ViewController.swift in Sources */,
+				D3B1D0F122EAD1C8007A8D34 /* ProductViewModel.swift in Sources */,
+				D3B1D0BB22EAC60E007A8D34 /* ProductListViewController.swift in Sources */,
+				D3239E25230284EB0063A7B1 /* ObjectMapper.swift in Sources */,
 				D3B1D0EF22EAD1A3007A8D34 /* NewtorkManager.swift in Sources */,
 				D3B1D0B922EAC60E007A8D34 /* AppDelegate.swift in Sources */,
 				D3B26BC022F012D500915151 /* Constant.swift in Sources */,

@@ -16,7 +16,7 @@ protocol NotificationProtocal {
     
 }
 
-class SampleViewModel: NSObject {
+class ProductViewModel: NSObject {
     
     var delegate : NotificationProtocal?
     var datalist = [Product]()
@@ -26,7 +26,7 @@ class SampleViewModel: NSObject {
     }
     // Function to Fetch Data 
     func fetchData() {
-        NewtorkManager.networkmanager.retrieveAPIData(userCompletionHandler: { [weak self] dict , error in
+        NewtorkManager.networkmanager.retrieveAPIData(userCompletionHandler: { [weak self] productList , error in
             guard let weakSelf = self else {
                 return
             }
@@ -35,27 +35,17 @@ class SampleViewModel: NSObject {
                 self?.delegate?.updateError()
                 return
             }
-            guard let json = dict else {
+            guard let list = productList else {
                 print("No data")
                 return
             }
-            guard let tittle = json["title"] as? String else {
+            
+            guard let tittle = list.productTittle else {
                 return
             }
             
             weakSelf.headerTittle = tittle
-            
-            guard let jsonArray = json["rows"] as? [[String: Any]] else {
-                return
-            }
-            
-            //Clear Content before updated
-            weakSelf.datalist.removeAll()
-            //print("Total Products:\(jsonArray)")
-            for json in jsonArray
-            {
-                weakSelf.datalist.append(Product(productName: json["title"] as? String ?? "No value", productImage: json["imageHref"] as? String ?? "" , productDesc: json["description"] as? String ?? "No Value"))
-            }
+            weakSelf.datalist = list.productlist
             weakSelf.delegate?.updateContentOnView()
         })
     }

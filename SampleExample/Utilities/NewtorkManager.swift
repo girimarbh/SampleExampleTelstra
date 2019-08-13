@@ -10,14 +10,13 @@ import UIKit
 
 public class NewtorkManager: NSObject {
     
-
     static public let networkmanager = NewtorkManager()
     
     public override init() {
 
     }
     
-    func retrieveAPIData(userCompletionHandler : @escaping (NSDictionary? , NSError?) -> Void) {
+    func retrieveAPIData(userCompletionHandler : @escaping (ProductList? , NSError?) -> Void) {
         var request: URLRequest = URLRequest(url: URL(string: baseURL)!)
         request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -48,8 +47,9 @@ public class NewtorkManager: NSObject {
             }
             print(String(decoding: json, as: UTF8.self))
             if let dict = self.convertToDictionary(text: String(decoding: json, as: UTF8.self)){
+                ObjectMapper.objectmapper.map(dict: dict)
                 DispatchQueue.main.async{
-                    userCompletionHandler(dict as NSDictionary , nil)
+                    userCompletionHandler(ObjectMapper.objectmapper.productList , nil)
                 }
             }
         }

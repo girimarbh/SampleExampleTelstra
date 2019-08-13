@@ -62,8 +62,14 @@ class ProductCell : UITableViewCell {
             //print("No Content")
             return
         }
-        if productDetails.productImage.count > 0{
-            downloadImage(imageUrl: productDetails.productImage, completion: { image in
+        
+        if let tittle = productDetails.productName{
+            productNameLabel.text = tittle
+        }
+        
+        
+        if let img = productDetails.productImage, img.count > 2{
+            DownloadManager.downloadmanager.downloadImage(imageUrl: img, completion: { image in
                 DispatchQueue.main.async{ [weak self] in
                     guard let weakSelf = self else { return }
                     if let image = image {
@@ -76,28 +82,17 @@ class ProductCell : UITableViewCell {
             })
         }else{
             self.productImage.image = UIImage(named: "placeholder")
+
         }
         
-        productNameLabel.text = product?.productName
-        if productDetails.productDesc.count < 30{
-            productImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 0, width: 90, height: 0, enableInsets: false)
-            
-            productDescriptionLabel.anchor(top: productNameLabel.bottomAnchor, left: productImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 5, paddingRight: 0, width: frame.size.width - 90, height: 0, enableInsets: false)
-        }
-        productDescriptionLabel.text = product?.productDesc
-    }
-    
-    // Function to Download image
-    private func downloadImage(imageUrl:String, completion: @escaping (UIImage?)->()) {
-        let url = URL(string: imageUrl)
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            guard let imgData = data else {
-                print("No data")
-                return
+        if let desc = productDetails.productDesc{
+            if desc.count < 30{
+                productImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 0, width: 90, height: 0, enableInsets: false)
+                
+                productDescriptionLabel.anchor(top: productNameLabel.bottomAnchor, left: productImage.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 5, paddingRight: 0, width: frame.size.width - 90, height: 0, enableInsets: false)
             }
-            let image = UIImage(data: imgData)
-            completion(image)
-        }).resume()
+            productDescriptionLabel.text = desc
+        }
     }
 }
 
