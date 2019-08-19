@@ -62,11 +62,12 @@ class ProductListViewController: UITableViewController,NotificationProtocal {
         if ReachabilityTest.isConnectedToNetwork() {
             productviewmodel.delegate = self
             productviewmodel.fetchData();
+            
             //Calling Viewmodel class to fetchdata
         }
         else{
-           let alert = UIAlertController(title: "Internet Connection", message: "No Internet aviliable", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
+           let alert = UIAlertController(title: internetConnection, message: noInternetAvailable , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: cancel , style: .cancel, handler: {[weak self] _ in
                 guard let weakSelf = self else { return }
                 weakSelf.refreshcontrol.endRefreshing()
             }))
@@ -92,9 +93,9 @@ extension ProductListViewController{
         return productviewmodel.datalist.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return productviewmodel.headerTittle
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return productviewmodel.headerTittle
+//    }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -107,12 +108,13 @@ extension ProductListViewController{
             weakSelf.refreshControl?.endRefreshing()
             weakSelf.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
             weakSelf.tableView.reloadData()
+            self?.navigationItem.title = self?.productviewmodel.headerTittle
         }
     }
     func updateError()
     {
         let alert = UIAlertController(title: secureError, message: noData , preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {[weak self] _ in
+        alert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: {[weak self] _ in
             guard let weakSelf = self else { return }
             weakSelf.refreshcontrol.endRefreshing()
         }))

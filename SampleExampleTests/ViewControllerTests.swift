@@ -13,13 +13,17 @@ import XCTest
 
 class ViewControllerTests: XCTestCase {
     var viewControllerUnderTest : ProductListViewController!
+    var vc = UINavigationController()
 
     override func setUp() {
         super.setUp()
         
         if let app = UIApplication.shared.delegate as? AppDelegate, let window = app.window {
-            viewControllerUnderTest = window.rootViewController  as! ProductListViewController
-            viewControllerUnderTest.loadView()
+//            viewControllerUnderTest = window.rootViewController  as! ProductListViewController
+//            viewControllerUnderTest.loadView()
+            vc = window.rootViewController as! UINavigationController
+            viewControllerUnderTest = self.vc.viewControllers[0] as? ProductListViewController
+            
         }
     
 

@@ -20,7 +20,7 @@ class DownloadManager: NSObject {
         let url = URL(string: imageUrl)
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             guard let imgData = data else {
-                print("No data")
+               // print("No data")
                 return
             }
             let image = UIImage(data: imgData)
