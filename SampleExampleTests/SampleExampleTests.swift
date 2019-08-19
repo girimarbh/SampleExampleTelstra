@@ -45,36 +45,7 @@ class SampleExampleTests: XCTestCase {
             return
         }
         
-        if let json = self.convertToDictionary(text: String(decoding: json, as: UTF8.self)){
-//            guard let json = dict else {
-//                print("No data")
-//                return
-//            }
-            guard let tittle = json["title"] as? String else {
-                return
-            }
-            let expectedTitle = "About Canada"
-            XCTAssertEqual(tittle, expectedTitle)
-            
-
-            
-            guard let jsonArray = json["rows"] as? [[String: Any]] else {
-                return
-            }
-            
-            let  json = jsonArray[0]
-            let expectedjsonTitle = "Beavers"
-            let actualjsontittle = json["title"] as? String
-            XCTAssertEqual(expectedjsonTitle, actualjsontittle)
-            
-            
-            let expectedDescription = "Beavers are second only to humans in their ability to manipulate and change their environment. They can measure up to 1.3 metres long. A group of beavers is called a colony"
-            let actualDescription = json["description"] as? String
-            XCTAssertEqual(expectedDescription, actualDescription)
-                
-                
-            
-        }
+        
         
         guard json.count != 0 else {
             XCTAssertNil(json)
