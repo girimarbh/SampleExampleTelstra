@@ -24,10 +24,9 @@ class ProductListViewController: UITableViewController,NotificationProtocal {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         // Add Refresh Control to Table View
         if #available(iOS 10.0, *) {
-            tableView.refreshControl = refreshControl
+            tableView.refreshControl = refreshcontrol
         } else {
             tableView.addSubview(refreshcontrol)
         }
@@ -93,9 +92,6 @@ extension ProductListViewController{
         return productviewmodel.datalist.count
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return productviewmodel.headerTittle
-//    }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

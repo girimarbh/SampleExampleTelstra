@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController()
         let rootControoler = ProductListViewController()//ViewController = Name of your controller
         nav.viewControllers = [rootControoler]
-        self.window!.rootViewController = nav
+        self.window?.rootViewController = nav
         self.window?.makeKeyAndVisible()
         // let rootControoler = ProductListViewController()
         //window?.rootViewController = rootControoler  //setting viewcontroller as window rootviewcontroller

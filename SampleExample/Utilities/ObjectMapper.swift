@@ -23,7 +23,7 @@ class ObjectMapper : NSObject{
     }
         
     func map(dict: [String: Any]?)  {
-        
+        datalist.removeAll()
         guard let json = dict else {
             print("No data")
             return
