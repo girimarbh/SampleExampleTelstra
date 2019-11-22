@@ -12,6 +12,7 @@ import UIKit
 ../////////////////
 
 ///hiii///
+///bye
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
