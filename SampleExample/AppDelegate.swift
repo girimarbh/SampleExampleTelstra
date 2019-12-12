@@ -9,9 +9,9 @@
 import UIKit
 
 @UIApplicationMain
-../////////////////
-
-///hiii///
+..////////////////////
+///////
+///hiii//////
 ///bye
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
